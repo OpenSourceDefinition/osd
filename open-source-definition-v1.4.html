@@ -1,0 +1,422 @@
+<html>
+<head><!-- is_embed=True -->
+<script type="text/javascript" src="/_static/js/bundle-playback.js?v=krFivnjJ" charset="utf-8"></script>
+<script type="text/javascript" src="/_static/js/wombat.js?v=txqj7nKC" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden"};</script>
+<script type="text/javascript" src="/_static/js/ruffle/ruffle.js"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://web.archive.org:80/web/19990428175253/opensource.org/osd.html","20140423125605","https://web.archive.org/","web","/_static/",
+	      "1398257765");
+</script>
+<link rel="stylesheet" type="text/css" href="/_static/css/banner-styles.css?v=S1zqJCYt" />
+<link rel="stylesheet" type="text/css" href="/_static/css/iconochive.css?v=3PDvdIFv" />
+<!-- End Wayback Rewrite JS Include -->
+
+
+<script type="text/javascript" src="/web/20140423125605js_/http://web.archive.org/static/js/analytics.js"></script>
+<link type="text/css" rel="stylesheet" href="/web/20140423125605cs_/http://web.archive.org/static/css/banner-styles.css"/>
+
+
+
+
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Bruce Perens">
+   <meta name="Description" content="The Open Souce Definition">
+   <meta name="Keywords" content="open source, open-source, free software">
+   <title>The Open Source Definition</title>
+</head>
+<body text="#000000" background="/web/20140423125605im_/http://web.archive.org/web/19990428175253im_/http://opensource.org/osbak.gif" bgcolor="#FFFFFF">
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script> if (window.archive_analytics) { window.archive_analytics.values['server_name']="wwwb-app2.us.archive.org";}; </script>
+
+<script type="text/javascript" src="/web/20140423125605js_/http://web.archive.org/static/js/disclaim-element.js"></script>
+<script type="text/javascript" src="/web/20140423125605js_/http://web.archive.org/static/js/graph-calc.js"></script>
+<script type="text/javascript" src="/web/20140423125605js_/http://web.archive.org/static/jflot/jquery.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var firstDate = 820454400000;
+var lastDate = 1420070399999;
+var wbPrefix = "/web/";
+var wbCurrentUrl = "https:\/\/web.archive.org\/web\/20140423125605\/http:\/\/opensource.org\/osd.html";
+
+var curYear = -1;
+var curMonth = -1;
+var yearCount = 18;
+var firstYear = 1996;
+var imgWidth = 475;
+var yearImgWidth = 25;
+var monthImgWidth = 2;
+var trackerVal = "none";
+var displayDay = "28";
+var displayMonth = "Apr";
+var displayYear = "1999";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function showTrackers(val) {
+	if(val == trackerVal) {
+		return;
+	}
+	if(val == "inline") {
+		document.getElementById("displayYearEl").style.color = "#ec008c";
+		document.getElementById("displayMonthEl").style.color = "#ec008c";
+		document.getElementById("displayDayEl").style.color = "#ec008c";		
+	} else {
+		document.getElementById("displayYearEl").innerHTML = displayYear;
+		document.getElementById("displayYearEl").style.color = "#ff0";
+		document.getElementById("displayMonthEl").innerHTML = displayMonth;
+		document.getElementById("displayMonthEl").style.color = "#ff0";
+		document.getElementById("displayDayEl").innerHTML = displayDay;
+		document.getElementById("displayDayEl").style.color = "#ff0";
+	}
+   document.getElementById("wbMouseTrackYearImg").style.display = val;
+   document.getElementById("wbMouseTrackMonthImg").style.display = val;
+   trackerVal = val;
+}
+function getElementX2(obj) {
+	var thing = jQuery(obj);
+	if((thing == undefined) 
+			|| (typeof thing == "undefined") 
+			|| (typeof thing.offset == "undefined")) {
+		return getElementX(obj);
+	}
+	return Math.round(thing.offset().left);
+}
+function trackMouseMove(event,element) {
+
+   var eventX = getEventX(event);
+   var elementX = getElementX2(element);
+   var xOff = eventX - elementX;
+	if(xOff < 0) {
+		xOff = 0;
+	} else if(xOff > imgWidth) {
+		xOff = imgWidth;
+	}
+   var monthOff = xOff % yearImgWidth;
+
+   var year = Math.floor(xOff / yearImgWidth);
+	var yearStart = year * yearImgWidth;
+   var monthOfYear = Math.floor(monthOff / monthImgWidth);
+   if(monthOfYear > 11) {
+       monthOfYear = 11;
+   }
+   // 1 extra border pixel at the left edge of the year:
+   var month = (year * 12) + monthOfYear;
+   var day = 1;
+	if(monthOff % 2 == 1) {
+		day = 15;
+	}
+	var dateString = 
+		zeroPad(year + firstYear) + 
+		zeroPad(monthOfYear+1,2) +
+		zeroPad(day,2) + "000000";
+
+	var monthString = prettyMonths[monthOfYear];
+	document.getElementById("displayYearEl").innerHTML = year + 1996;
+	document.getElementById("displayMonthEl").innerHTML = monthString;
+	// looks too jarring when it changes..
+	//document.getElementById("displayDayEl").innerHTML = zeroPad(day,2);
+
+	var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+	document.getElementById('wm-graph-anchor').href = url;
+
+   //document.getElementById("wmtbURL").value="evX("+eventX+") elX("+elementX+") xO("+xOff+") y("+year+") m("+month+") monthOff("+monthOff+") DS("+dateString+") Moy("+monthOfYear+") ms("+monthString+")";
+   if(curYear != year) {
+       var yrOff = year * yearImgWidth;
+       document.getElementById("wbMouseTrackYearImg").style.left = yrOff + "px";
+       curYear = year;
+   }
+   if(curMonth != month) {
+       var mtOff = year + (month * monthImgWidth) + 1;
+       document.getElementById("wbMouseTrackMonthImg").style.left = mtOff + "px";
+       curMonth = month;
+   }
+}
+//]]>
+</script>
+
+<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
+<div id="wm-ipp" lang="en" class="__wb_banner_div" style="display:none; position:relative;padding:0 5px;min-height:70px;min-width:800px">
+
+
+<div id="wm-ipp-inside" class="__wb_banner_div" style="position:fixed;padding:0!important;margin:0!important;width:97%;min-width:780px;border:5px solid #000;border-top:none;background-image:url(/web/20140423125605im_/http://web.archive.org/static/images/toolbar/wm_tb_bk_trns.png);text-align:center;-moz-box-shadow:1px 1px 3px #333;-webkit-box-shadow:1px 1px 3px #333;box-shadow:1px 1px 3px #333;font-size:11px!important;font-family:'Lucida Grande','Arial',sans-serif!important;">
+   <table style="border-collapse:collapse;margin:0;padding:0;width:100%;"><tbody><tr>
+   <td style="padding:10px;vertical-align:top;min-width:110px;">
+   <a href="/web/20140423125605/http://web.archive.org/web/" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="/web/20140423125605im_/http://web.archive.org/static/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0"/></a>
+   </td>
+   <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;">
+
+       <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
+       <td style="padding:3px 0;" colspan="2">
+       <form target="_top" method="get" action="/web/20140423125605/http://web.archive.org/web/form-submit.jsp" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;"><input type="text" name="url" id="wmtbURL" value="http://opensource.org/osd.html" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;" onfocus="javascript:this.focus();this.select();"/><input type="hidden" name="type" value="replay"/><input type="hidden" name="date" value="19990428175253"/><input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;width: inherit !important"/><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td style="vertical-align:bottom;padding:5px 0 0 0!important;" rowspan="2">
+           <table style="border-collapse:collapse;width:110px;color:#99a;font-family:'Helvetica','Lucida Grande','Arial',sans-serif;"><tbody>
+			
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr style="width:110px;height:16px;font-size:10px!important;">
+           	<td style="padding-right:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       Mar
+                       
+               </td>
+               <td id="displayMonthEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight:bold;text-transform:uppercase;width:34px;height:15px;padding-top:1px;text-align:center;" title="You are here: 17:52:53 Apr 28, 1999">APR</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="/web/20140423125605/http://web.archive.org/web/19991012192213/http://opensource.org/osd.html" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="12 Oct 1999"><strong>OCT</strong></a>
+		                
+               </td>
+           </tr>
+
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr>
+               <td style="padding-right:9px;white-space:nowrap;overflow:visible;text-align:right!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+                       <img src="/web/20140423125605im_/http://web.archive.org/static/images/toolbar/wm_tb_prv_off.png" alt="Previous capture" width="14" height="16" border="0"/>
+                       
+               </td>
+               <td id="displayDayEl" style="background:#000;color:#ff0;width:34px;height:24px;padding:2px 0 0 0;text-align:center;font-size:24px;font-weight: bold;" title="You are here: 17:52:53 Apr 28, 1999">28</td>
+				<td style="padding-left:9px;white-space:nowrap;overflow:visible;text-align:left!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="/web/20140423125605/http://web.archive.org/web/19991012192213/http://opensource.org/osd.html" title="19:22:13 Oct 12, 1999" style="background-color:transparent;border:none;"><img src="/web/20140423125605im_/http://web.archive.org/static/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"/></a>
+		                
+			    </td>
+           </tr>
+
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr style="width:110px;height:13px;font-size:9px!important;">
+				<td style="padding-right:9px;font-size:11px!important;font-weight: bold;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       1998
+                       
+               </td>
+               <td id="displayYearEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight: bold;padding-top:1px;width:34px;height:13px;text-align:center;" title="You are here: 17:52:53 Apr 28, 1999">1999</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight: bold;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="/web/20140423125605/http://web.archive.org/web/20000511201827/http://www.opensource.org/osd.html" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="11 May 2000"><strong>2000</strong></a>
+		                
+				</td>
+           </tr>
+           </tbody></table>
+       </td>
+
+       </tr>
+       <tr>
+       <td style="vertical-align:middle;padding:0!important;">
+           <a href="/web/20140423125605/http://web.archive.org/web/19990428175253*/http://opensource.org/osd.html" style="color:#33f;font-size:11px;font-weight:bold;background-color:transparent;border:none;" title="See a list of every capture for this URL"><strong>187 captures</strong></a>
+           <div class="__wb_banner_div" style="margin:0!important;padding:0!important;color:#666;font-size:9px;padding-top:2px!important;white-space:nowrap;" title="Timespan for captures of this URL">28 Apr 99 - 1 Apr 14</div>
+       </td>
+       <td style="padding:0!important;">
+       <a style="position:relative; white-space:nowrap; width:475px;height:27px;" href="" id="wm-graph-anchor">
+       <div class="__wb_banner_div" id="wm-ipp-sparkline" style="position:relative; white-space:nowrap; width:475px;height:27px;background-color:#fff;cursor:pointer;border-right:1px solid #ccc;" title="Explore captures for this URL">
+			<img id="sparklineImgId" style="position:absolute; z-index:9012; top:0px; left:0px;" onmouseover="showTrackers('inline');" onmouseout="showTrackers('none');" onmousemove="trackMouseMove(event,this)" alt="sparklines" width="475" height="27" border="0" src="/web/20140423125605im_/http://web.archive.org/web/jsp/graph.jsp?graphdata=475_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:3:000100000110_2000:-1:002032021222_2001:-1:010112000100_2002:-1:110001010011_2003:-1:100000000000_2004:-1:000000000000_2005:-1:000000000000_2006:-1:000600001000_2007:-1:000002111711_2008:-1:011110000101_2009:-1:111101000001_2010:-1:210112101001_2011:-1:000402532322_2012:-1:922122221a20_2013:-1:a88521113912_2014:-1:001200000000"></img>
+			<img id="wbMouseTrackYearImg" style="display:none; position:absolute; z-index:9010;" width="25" height="27" border="0" src="/web/20140423125605im_/http://web.archive.org/static/images/toolbar/transp-yellow-pixel.png"></img>
+			<img id="wbMouseTrackMonthImg" style="display:none; position:absolute; z-index:9011; " width="2" height="27" border="0" src="/web/20140423125605im_/http://web.archive.org/static/images/toolbar/transp-red-pixel.png"></img>
+       </div>
+		</a>
+
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
+       <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(/web/20140423125605im_/http://web.archive.org/static/images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="Close the toolbar">Close</a>
+       <a href="https://web.archive.org/web/20140423125605/http://faq.web.archive.org/" style="display:block;padding-right:18px;background:url(/web/20140423125605im_/http://web.archive.org/static/images/toolbar/wm_tb_help.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;background-color:transparent;border:none;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+
+</div>
+</div>
+<script type="text/javascript">
+ var wmDisclaimBanner = document.getElementById("wm-ipp");
+ if(wmDisclaimBanner != null) {
+   disclaimElement(wmDisclaimBanner);
+ }
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+
+<h5 align="center">[Translations available: 
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://www.linux.org.tw/CLDP/other/open-source-def.html">Chinese</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://www.opensource.nl/defs/opensource.html">Dutch</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://www.linux-france.org/article/these/osd/fr-osd.html">French</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/de-osd.html">German</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://das.harvard.edu/~pvs/osd/po-osd.html">Portuguese</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://members.xoom.com/drodrigo/es-osd.html">Spanish</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://www.geocities.co.jp/SiliconValley-PaloAlto/9803/osd-ja/osd-ja.html">
+Japanese</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://developer.thai.net/opensource/osd.html">Thai</a>
+]</h5>
+
+<table width="100%" height="100%" cellpadding="0" border="0">
+  <tr>
+    <td width="50" valign="top" align="left">
+      <img src="/web/20140423125605im_/http://web.archive.org/web/19990428175253im_/http://opensource.org/osside.gif">
+    </td>
+    <td>
+
+<h1 align="center"><font color="#ff0000">The Open Source Definition</font></h1>
+<p>
+<center>(Version 1.4)</center>
+<p>
+
+Open source doesn't just mean access to the source code. The
+distribution terms of an open-source program must comply with the following
+criteria:
+
+<a name="clause1"><h2>1. Free Redistribution</h2>
+
+The license may not restrict any party from selling or giving away the
+software as a component of an aggregate software distribution containing
+programs from several different sources. The license may not require a
+royalty or other fee for such sale.</a> 
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/osd-rationale.html#clause1"><font size="-1">(rationale)</font></a>
+
+<a name="clause2"><h2>2. Source Code</h2>
+
+The program must include source code, and must allow distribution in
+source code as well as compiled form. Where some form of a product is
+not distributed with source code, there must be a well-publicized
+means of downloading the source code, without charge, via the
+Internet. The source code must be the preferred form in which a
+programmer would modify the program. Deliberately obfuscated source
+code is not allowed. Intermediate forms such as the output of a
+preprocessor or translator are not allowed.  <a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/osd-rationale.html#clause2"><font size="-1">(rationale)</font></a>
+
+<a name="clause3"><h2>3. Derived Works</h2>
+
+The license must allow modifications and derived works, and must allow
+them to be distributed under the same terms as the license of the original
+software.</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/osd-rationale.html#clause3"><font size="-1">(rationale)</font></a>
+
+<a name="clause4"><h2>4. Integrity of The Author's Source Code.</h2>
+
+The license may restrict source-code from being distributed in modified
+form <em>only</em> if the license allows the distribution of "patch files" with
+the source code for the purpose of modifying the program at build time.
+The license must explicitly permit distribution of software built from
+modified source code. The license may require derived works to carry a
+different name or version number from the original software.</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/osd-rationale.html#clause4"><font size="-1">(rationale)</font></a>
+
+<a name="clause5"><h2>5. No Discrimination Against Persons or Groups.</h2>
+
+The license must not discriminate against any person or group of persons.</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/osd-rationale.html#clause5"><font size="-1">(rationale)</font></a>
+
+<a name="clause6"><h2>6. No Discrimination Against Fields of Endeavor.</h2>
+
+The license must not restrict anyone from making use of the program in
+a specific field of endeavor. For example, it may not restrict the program
+from being used in a business, or from being used for genetic research.</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/osd-rationale.html#clause6"><font size="-1">(rationale)</font></a>
+
+<a name="clause7"><h2>7. Distribution of License.</h2>
+
+The rights attached to the program must apply to all to whom the program
+is redistributed without the need for execution of an additional license
+by those parties.</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/osd-rationale.html#clause7"><font size="-1">(rationale)</font></a>
+
+<a name="clause8"><h2>8. License Must Not Be Specific to a Product.</h2>
+
+The rights attached to the program must not depend on the program's being
+part of a particular software distribution. If the program is extracted
+from that distribution and used or distributed within the terms of the
+program's license, all parties to whom the program is redistributed should
+have the same rights as those that are granted in conjunction with the
+original software distribution.</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/osd-rationale.html#clause8"><font size="-1">(rationale)</font></a>
+
+<a name="clause9"><h2>9. License Must Not Contaminate Other Software.</h2>
+
+The license must not place restrictions on other software that is distributed
+along with the licensed software. For example, the license must not insist
+that all other programs distributed on the same medium must be open-source
+software.</a>
+<a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/osd-rationale.html#clause9"><font size="-1">(rationale)</font></a>
+
+<a name="clause10"><h2>10. Conforming Licenses and Certification.</h2> 
+
+Any software that uses licenses that are certified conformant to the Open
+Source Definition may use the Open Source trademark, as may source code
+explicitly placed in the public domain.  No other license or software is
+certified to use the Open Source trademark.<p>
+
+(The following information is not part of the Open Source Definition, and it
+may change from time to time.)<p>
+
+The <a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/gpl-license.html">GNU GPL</a>, 
+the LGPL,
+the <a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/bsd-license.html">BSD license</a>,
+the <a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/mit-license.html">X Consortium license</a>, 
+the <a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://opensource.org/artistic-license.html">Artistic</a>,
+the <a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://www.mozilla.org/NPL/MPL-1.0.html">MPL</a>
+and the <a href="/web/20140423125605/http://web.archive.org/web/19990428175253/http://www.troll.no/qpl/">QPL</a>
+are examples of licenses that we consider conformant to the
+Open Source Definition.<p>  
+
+To have a license reviewed for certification, write <a href="https://web.archive.org/web/20140423125605/mailto:certification@opensource.org">certification@opensource.org</a>.
+We strongly encourage use of already-certified licenses from the above list,
+since this allows use of the Open Source mark without the need for review.
+Please report misuse of the Open Source mark to <a href="https://web.archive.org/web/20140423125605/mailto:mark-misuse@opensource.org">mark-misuse@opensource.org</a>.<p>
+
+<h2>Change history:</h2>
+1.0 -- identical to DFSG, except for addition of MPL and QPL to clause 10.<p>
+1.1 -- added LGPL to clause 10.<p>
+1.2 -- added public-domain to clause 10.<p>
+1.3 -- retitled clause 10 and split off the license list,
+       adding material on procedures.<p>
+1.4 -- Now explicit about source code requirement for PD software.
+</table>
+<p>
+<font size="-1">
+Bruce Perens wrote the first draft of this document as `The Debian Free
+Software Guidelines', and refined it using the comments of the Debian
+developers in a month-long e-mail conference in June, 1997. He removed
+the Debian-specific references from the document to create the `Open
+Source Definition'.<p>
+</font>
+
+<address>
+<em>Send questions or suggestions about this page to
+<a href="https://web.archive.org/web/20140423125605/mailto:webmaster@opensource.org">webmaster@opensource.org</a></em>
+</address>
+</td>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 17:52:53 Apr 28, 1999 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 12:56:03 Apr 23, 2014.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+     FILE ARCHIVED ON 12:56:05 Apr 23, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 10:37:42 Oct 23, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.48
+  exclusion.robots: 0.024
+  exclusion.robots.policy: 0.016
+  esindex: 0.011
+  cdx.remote: 23.182
+  LoadShardBlock: 114.219 (3)
+  PetaboxLoader3.datanode: 132.014 (4)
+  load_resource: 71.361
+  PetaboxLoader3.resolve: 46.869
+-->
